@@ -1,0 +1,15 @@
+<main>
+  <h1>Welcome to Twittest.  It's the thrillest!</h1>
+
+  <%= form_for @user url: login_path do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.submit "Login" %>
+
+  <% end %>
+
+  <%= link_to "Create new account", users_new_path %>
+
+</main>

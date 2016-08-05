@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   get '/users/new' => 'users#new'
   post '/users' => 'users#create'
 
-  get '/users/:id/tweets' => 'tweets#show'
+  get '/users/:id/tweets' => 'tweets#show', as: :user_home
 
-  get '/login' => 'sessions#new', as: :login
+  get '/login' => 'sessions#new', as: :login_page
+  post '/login' => 'sessions#create', as: :login
+
+  root 'sessions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
