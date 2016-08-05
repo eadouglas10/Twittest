@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id # Actually log in
-      redirect_to user_home_path(:user_id)
+      redirect_to user_home_path(:user_id), notice: "You have succesfully logged in"
     else
       render :new
     end

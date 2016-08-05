@@ -1,5 +1,7 @@
 <main>
+  
   <h2><%= @user.name %></h2>
+  <h5> <%= link_to "Logout", logout_path, method: :delete %> </h5>
   <h3><%= @tweets.length %> tweets</h3>
 
   <%= form_for @tweet, url: tweet_path do |f| %>
@@ -12,6 +14,7 @@
   <% @tweets.each do |tweet| %>
   <p>
       <%= tweet.body %>
+      <%= link_to "Delete", del_tweet_path(tweet.id), method: :delete %>
   </p>
   <% end %>
 

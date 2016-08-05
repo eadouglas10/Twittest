@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   get '/users/:id/tweets' => 'tweets#show', as: :user_home
   post '/tweet' => 'tweets#create', as: :tweet
+  delete '/tweet/:id' => 'tweets#destroy', as: :del_tweet
 
   get '/login' => 'sessions#new', as: :login_page
   post '/login' => 'sessions#create', as: :login
+  delete '/session' => 'sessions#destroy', as: :logout
 
   root 'sessions#new'
 
