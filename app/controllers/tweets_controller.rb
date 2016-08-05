@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
   def show
-    @user = current_user
+    @user = User.find(current_user)
     @tweets = @user.tweets.order(created_at: :desc)
     @tweet = Tweet.new
   end
@@ -19,6 +19,10 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params["id"])
     @tweet.destroy
     redirect_to user_home_path(@tweet.user_id)
+  end
+
+  def search
+    @user = User.where("name LIKE ?", "%#{params[:q]}%")
   end
 
   private def tweet_params

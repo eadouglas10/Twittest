@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   get '/users/new' => 'users#new'
   post '/users' => 'users#create'
 
-  get '/users/:id/tweets' => 'tweets#show', as: :user_home
+  get '/users/tweets' => 'tweets#show', as: :user_home
   post '/tweet' => 'tweets#create', as: :tweet
   delete '/tweet/:id' => 'tweets#destroy', as: :del_tweet
+  get '/users/:name/tweets' => 'tweets#search', as: :see_user
 
   get '/login' => 'sessions#new', as: :login_page
   post '/login' => 'sessions#create', as: :login

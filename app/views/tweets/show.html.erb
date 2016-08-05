@@ -1,8 +1,13 @@
 <main>
-  
+
   <h2><%= @user.name %></h2>
   <h5> <%= link_to "Logout", logout_path, method: :delete %> </h5>
   <h3><%= @tweets.length %> tweets</h3>
+
+  <%= form_tag see_user_path(@user.name), method: :get do %>
+  <%= text_field_tag(:q, params[:q], placeholder: "Search users") %>
+  <%= submit_tag "Search" %>
+<% end %>
 
   <%= form_for @tweet, url: tweet_path do |f| %>
     <%= f.text_area :body %>
