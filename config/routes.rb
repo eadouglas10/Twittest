@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   get '/users/:id/tweets' => 'tweets#show', as: :user_home
+  post '/tweet' => 'tweets#create', as: :tweet
 
   get '/login' => 'sessions#new', as: :login_page
   post '/login' => 'sessions#create', as: :login
