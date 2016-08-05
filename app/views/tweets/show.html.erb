@@ -1,3 +1,10 @@
 <main>
-  
+  <h2><%= @user.name %></h2>
+  <h3><%= @tweets.length %> tweets</h3>
+
+  <% @tweets.each do |tweet| %>
+  <p>
+      <%= tweet.body %>
+  </p>
+  <% end %>
 </main>
