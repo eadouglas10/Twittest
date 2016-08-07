@@ -4,7 +4,7 @@
   <h5> <%= link_to "Logout", logout_path, method: :delete %> </h5>
   <h3><%= @tweets.length %> tweets</h3>
 
-  <%= form_tag see_user_path(@user.name), method: :get do %>
+  <%= form_tag search_path(@user.name), method: :get do %>
   <%= text_field_tag(:q, params[:q], placeholder: "Search users") %>
   <%= submit_tag "Search" %>
 <% end %>

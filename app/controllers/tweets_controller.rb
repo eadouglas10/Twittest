@@ -22,7 +22,13 @@ class TweetsController < ApplicationController
   end
 
   def search
-    @user = User.where("name LIKE ?", "%#{params[:q]}%")
+    @users = User.where("name LIKE ?", "%#{params[:q]}%")
+  end
+
+  def display
+    @user = User.find_by(name: params["name"])
+    @tweets = @user.tweets
+    render :see_user
   end
 
   private def tweet_params

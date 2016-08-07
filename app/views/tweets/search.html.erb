@@ -1,0 +1,5 @@
+<main>
+  <% @users.each do |user| %>
+  <%= link_to user.name, see_user_path(user.name) %>
+  <% end %>
+</main>

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/users/tweets' => 'tweets#show', as: :user_home
   post '/tweet' => 'tweets#create', as: :tweet
   delete '/tweet/:id' => 'tweets#destroy', as: :del_tweet
-  get '/users/:name/tweets' => 'tweets#search', as: :see_user
+  get '/users/names' => 'tweets#search', as: :search
+  get '/users/:name/tweets' => 'tweets#display', as: :see_user
 
   get '/login' => 'sessions#new', as: :login_page
   post '/login' => 'sessions#create', as: :login
